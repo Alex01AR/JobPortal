@@ -9,7 +9,7 @@ const router =Router();
 
 router.route("/register").post(singleUpload,register);
 router.route("/login").post(loginUser);
-router.route("/logout").get(auth,logoutUser);
+router.route("/logout").get(logoutUser);
 router.route("/update").post(auth,singleUpload, updateProfile);
 
 export { router}
