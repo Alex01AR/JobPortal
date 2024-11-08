@@ -44,7 +44,7 @@ const dispatch = useDispatch();
     //         <CarouselNext />
     //     </Carousel>
     // </div>
-    <div className='flex justify-center mt-14'><Carousel className="w-full max-w-md">
+    <div className='flex justify-center mt-14'><Carousel className="w-full  max-w-xl">
     <CarouselContent className="-ml-1">
     {
     category && category.map((cat, index) => (

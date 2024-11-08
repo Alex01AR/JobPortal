@@ -31,7 +31,7 @@ function Profile() {
     return (
         <div>
             <Navbar />
-            <div className='max-w-4xl bg-white border border-gray-200 rounded-2xl p-8 my-5 mx-auto'>
+            <div className='max-w-4xl bg-white border border-gray-200 rounded-2xl p-8 my-5 mx-auto px-5'>
                 <div className='flex justify-between'>
                     <div className='flex items-center  gap-4'>
                         <Avatar className="rounded-full h-20 w-20 bg-black " >

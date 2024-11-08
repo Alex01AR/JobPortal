@@ -3,7 +3,7 @@ import Navbar from '../shareable/Navbar'
 import { FilterCard } from '../Sections/FilterCard'
 import { JobsCard } from '../Sections/JobsCard'
 import { useSelector } from 'react-redux';
-
+import "../../App.css"
 // const jonArray = [1, 2, 3, 4, 5, 6, 7, 8];
 
 function Jobs() {
@@ -39,8 +39,8 @@ function Jobs() {
 
           {
            filterJobs?.length <= 0 ? <span>Job are not available </span> : (
-              <div className='flex-1 h-[88vh] overflow-y-auto pb-5'>
-                <div className='grid grid-cols-3 gap-4'>
+              <div className='flex-1 h-[88vh] overflow-y-auto pb-5 hide-scrollbar'>
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 '>
                   {
                   filterJobs?.map((job) => (
                       <div  key={job?._id}>

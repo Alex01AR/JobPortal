@@ -26,6 +26,7 @@ function Navbar() {
       if (res.data.success) {
         dispatch(setUser(null));
         navigate("/");
+        
         toast.success(res.data.message);
         console.log("logout successfully");
 
@@ -42,7 +43,7 @@ function Navbar() {
   return (
     <div>
       <div className='flex items-center justify-between mx-auto max-w-6xl h-16'>
-        <div><h1 className='text-2xl font-bold'>Job<span className='text-[#F83002]'>Portal</span></h1></div>
+        <div><h1 className='text-2xl font-bold'>Job<span className='text-[#9b29e6]'>Portal</span></h1></div>
         <div className='flex items-center gap-12'>
 
           <ul className='flex font-medium  gap-5 items-center'>

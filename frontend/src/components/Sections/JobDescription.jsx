@@ -118,7 +118,7 @@ function JobDescription() {
 
 
   return (
-    <div className='max-w-6xl mx-auto my-10'>
+    <div className='max-w-6xl mx-auto my-10 px-5'>
       <div className='flex items-center justify-between'>
         <div>
           <h1 className='font-bold text-xl '>{singleJob?.title}</h1>

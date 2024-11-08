@@ -27,9 +27,9 @@ navigate("/browse")
           className='border pl-2 outline-none shadow-xl rounded-l-2xl w-4/6'
           type="text"
           onChange={(e) => setQuery(e.target.value) }
-          placeholder='Search Here ...'
+          placeholder='   Search Here ...'
         />
-        <button onClick={searchJobhandler} className='bg-black hover:bg-[#9b29e6]   shadow-xl rounded-r-2xl text-white px-3 py-2'>
+        <button onClick={searchJobhandler} className='bg-black hover:bg-[#F83002] shadow-xl rounded-r-2xl text-white px-5 py-2'>
           <Search />
         </button>
       </div>

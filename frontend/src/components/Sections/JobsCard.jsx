@@ -18,14 +18,14 @@ const daysAgoFunction  = (mongodbTime) => {
 }
 
     return (
-        <div className='p-5 rounded-md shadow-md bg-white border border-gray-100'>
+        <div className='p-5 rounded-md shadow-md bg-white border border-gray-100 w-full max-w-xs min-w-[250px] mx-auto '>
             <div className='flex items-center justify-between'>
                 <p className='text-sm text-gray-500'>{daysAgoFunction(job?.createdAt) === 0 ? "Today" : `${daysAgoFunction(job?.createdAt)} days ago`} </p>
                 <Button variant="outline" className=" rounted-full" size="icon"> <Bookmark /></Button>
             </div>
 
 
-            <div className='flex items-center gap-2 my-2'>
+            <div className='flex items-center gap-2 my-1'>
                 <Button className="px-0 bg-white">
                     <Avatar>
                         <AvatarImage src={job?.company?.logo} />
@@ -40,15 +40,15 @@ const daysAgoFunction  = (mongodbTime) => {
 
             </div>
             <div >
-                <h1 className='font-bold text-lg my-2 '>{job?.title}</h1>
+                <h1 className='font-bold text-lg my-1 '>{job?.title}</h1>
                 <p className='text-sm text-gray-600'>{job?.description}</p>
             </div>
-            <div className='flex items-center gap-2 mt-4'>
+            <div className='flex items-center gap-2 mt-3'>
                 <Badge className={'text-blue-700 font-bold'} variant="ghost">{job?.position}  Positions</Badge>
                 <Badge className={'text-[#F83002] font-bold'} variant="ghost">{job?.jobType}</Badge>
                 <Badge className={'text-[#7209b7] font-bold'} variant="ghost">{job?.salery}_LPA</Badge>
             </div>
-            <div className='flex items-center gap-4 mt-4 '>
+            <div className='flex items-center gap-4 mt-3 '>
                 <Button onClick={() =>navigate(`/description/${job?._id}`) } variant="outline" className="font-medium ">Details</Button>
                 <Button className="bg-[#F83002] font-medium">Save for Later</Button>
             </div>

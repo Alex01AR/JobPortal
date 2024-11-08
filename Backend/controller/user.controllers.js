@@ -7,16 +7,25 @@ import cloudinary from "../utils/cloudinary.js";
 const register = async (req, res) => {
   try {
     const { fullName, email, phoneNumber, password, role } = req.body;
-
+    const file = req?.file;
     if (!fullName || !email || !phoneNumber || !password || !role) {
       return res.status(400).json({
         message: "All field is necessary in registration",
         success: false,
       });
     }
-const file = req.file;
-const fileUri = getDataUri(file);
-const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
+
+// const fileUri = getDataUri(file);
+// const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
+
+let cloudResponse = null;
+
+// Upload the file to Cloudinary only if the file exists
+if (file) {
+  const fileUri = getDataUri(file);  // Convert file to data URI
+  cloudResponse = await cloudinary.uploader.upload(fileUri?.content);  // Upload to Cloudinary
+}
+
 
 
 
@@ -37,7 +46,7 @@ const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
       phoneNumber,
       role,
       profile:{
-        profilePhoto:cloudResponse.secure_url,
+        profilePhoto:cloudResponse?.secure_url,
       }
     });
     return res.status(200).json({
@@ -158,6 +167,7 @@ if (file) {
     if (phoneNumber) user.phoneNumber = phoneNumber;
     if (bio) user.profile.bio = bio;
     if (skills) user.profile.skills = skillsArray;
+
   if(cloudResponse){
     user.profile.resume = cloudResponse?.secure_url
     user.profile.resumeOringinalName = file?.originalname
@@ -172,7 +182,7 @@ if (file) {
       email: user.email,
       phoneNumber: user.phoneNumber,
      role:user.role,
-     profile:user.profile
+     profile:user?.profile
     };
 
 

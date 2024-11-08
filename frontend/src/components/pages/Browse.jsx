@@ -26,7 +26,7 @@ function Browse() {
 
             <div className='max-w-7xl mx-auto my-auto'>
                 <h1 className='my-3 text-1xl font-medium text-[#e34713]'>Search Result ({allJobs.length}) </h1>
-                <div className='grid grid-cols-3 gap-4 mt-5 '>
+                <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 my-10'>
                 {
                         allJobs.map((job) => {
                             return (
