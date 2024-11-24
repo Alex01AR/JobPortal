@@ -26,14 +26,14 @@ function Navbar() {
       if (res.data.success) {
         dispatch(setUser(null));
         navigate("/");
-        
+
         toast.success(res.data.message);
-        console.log("logout successfully");
+        // console.log("logout successfully");
 
 
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       toast.error(error.message);
 
     }

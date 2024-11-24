@@ -11,11 +11,11 @@ import axios from 'axios';
 import { USER_API_END_POINT } from '../constant';
 
 function UpdateProfileDialog({ open, setopen }) {
-   
+
     const [loading, setLoading] = useState(false);
     const { user } = useSelector(store => store.auth);
     // const user = useSelector(state => state.auth.user);
-// console.log(user);
+    // console.log(user);
     const [input, setinput] = useState({
         fullName: user?.fullName,
         email: user?.email,
@@ -31,18 +31,7 @@ function UpdateProfileDialog({ open, setopen }) {
     const dispatch = useDispatch();
     const submitHandler = async (e) => {
         e.preventDefault();
-        console.log(input);
-        // const jsonData = {
-        //     fullName: input?.fullName,
-        //     email: input?.email,
-        //     phoneNumber: input?.phoneNumber,
-        //     bio: input?.bio,
-        //     skills: input?.skills,
-        //     // file: input?.file ? input.file.name : null // Just send the filename, or you can handle file upload separately
-        // };
-// console.log("inputskill",input.skills);
-// console.log("inputbio",input.bio);
-
+        // console.log(input);
 
         const formData = new FormData();
         formData.append("fullName", input.fullName);
@@ -56,11 +45,11 @@ function UpdateProfileDialog({ open, setopen }) {
 
 
         for (var pair of formData.entries()) {
-            console.log(pair[0]+ ', ' + pair[1] );
+            console.log(pair[0] + ', ' + pair[1]);
         }
         try {
 
-setLoading(true);
+            setLoading(true);
 
             const res = await axios.post(`${USER_API_END_POINT}/update`, formData, {
                 headers: {
@@ -68,41 +57,31 @@ setLoading(true);
                 },
                 withCredentials: true
             }
-            
+
             );
-            
+
 
 
             if (res.data.success) {
                 // console.log(res.data.user);
                 dispatch(setUser(res.data.user));
-            //    console.log(res.data.user);
+                //    console.log(res.data.user);
                 toast.success(res.data.message);
             }
         } catch (error) {
             console.log(error);
             toast.error(error.message);
         }
-        finally{
+        finally {
             setLoading(false)
         }
-        setopen(false);``
+        setopen(false); ``
         console.log(input);
     };
-    const fileHandler =  (e) => {
+    const fileHandler = (e) => {
         const file = e.target.files?.[0];
         setinput({ ...input, file })
     }
-
-
-    // useEffect(() => {
-    //     if (!user) {
-    //         dispatch(fetchUser());
-    //     }
-    // }, [dispatch, user, open]);
-
-
-
 
     return (
         <div>
@@ -111,8 +90,8 @@ setLoading(true);
                     <DialogHeader>
                         <DialogTitle>Update Profile</DialogTitle>
                         <DialogDescription>
-           update your Profile
-          </DialogDescription>
+                            update your Profile
+                        </DialogDescription>
                     </DialogHeader>
                     <form onSubmit={submitHandler}>
                         <div className='grid gap-4 py-4'>
@@ -181,7 +160,7 @@ setLoading(true);
                                 <Input
                                     id="file"
                                     name="file"
-                                 type="file"
+                                    type="file"
                                     accept="application/pdf"
                                     onChange={fileHandler}
                                     className="col-span-3"

@@ -18,16 +18,9 @@ const isresume = true;
 function Profile() {
     useGetAllAppliedJobs();
     const [open, setopen] = useState(false);
- 
-    const {user} = useSelector(store => store.auth);//error after update elemnt not show in profile 
-  
-    // console.log("fullanme ",user.fullName);
-    // console.log("email ",user.email);
-    // console.log("phonenumber ",user.phoneNumber);
-    // console.log("skills ",user.profile?.skills);
-    // console.log("bio ",user.profile?.bio);
 
-//  console.log(user);
+    const { user } = useSelector(store => store.auth);//error after update elemnt not show in profile 
+
     return (
         <div>
             <Navbar />
@@ -38,7 +31,7 @@ function Profile() {
                             <AvatarImage src="https://i.pinimg.com/564x/1d/91/05/1d910522b6046c321b096274dfe0ed0c.jpg" alt="user profile image" />
                         </Avatar>
                         <div>
-             <h1 className='font-medium text-xl '>{user?.fullName}</h1>
+                            <h1 className='font-medium text-xl '>{user?.fullName}</h1>
                             <p className='text-sm text-gray-600'>{user?.profile?.bio} </p>
                         </div>
 

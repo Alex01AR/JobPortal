@@ -8,12 +8,12 @@ import { useDispatch } from "react-redux"
 const useGetAllAppliedJobs = () => {
     const dispatch = useDispatch();
 
-    useEffect(()=>{
+    useEffect(() => {
         const fetchAppliedJobs = async () => {
             try {
-                const res = await axios.get(`${APPLICATION_API_END_POINT}/get`, {withCredentials:true});
-                console.log(res.data);
-                if(res.data.success){
+                const res = await axios.get(`${APPLICATION_API_END_POINT}/get`, { withCredentials: true });
+                // console.log(res.data);
+                if (res.data.success) {
                     dispatch(setallAppliedJobs(res.data.application));
                 }
             } catch (error) {
@@ -21,7 +21,7 @@ const useGetAllAppliedJobs = () => {
             }
         }
         fetchAppliedJobs();
-    },[])
+    }, [])
 };
 export default useGetAllAppliedJobs;
 

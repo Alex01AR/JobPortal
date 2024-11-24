@@ -1,14 +1,13 @@
 import { JOB_API_END_POINT } from '@/components/constant';
 import { setallJobs } from '@/redux/jobslice';
-import store from '@/redux/store';
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
+
 
 function useGetAllJobs() {
     const dispatch = useDispatch();
-    const {searchQuery} = useSelector(store=>store.job);
+    const { searchQuery } = useSelector(store => store.job);
 
     useEffect(() => {
 
@@ -21,7 +20,7 @@ function useGetAllJobs() {
                 }
 
 
-            } catch(error) {
+            } catch (error) {
                 console.log("error to fetch alljobs", error)
             }
 

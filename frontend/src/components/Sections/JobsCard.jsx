@@ -6,16 +6,16 @@ import { Badge } from '../ui/badge'
 import { Bookmark } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 
-function JobsCard({job}) {
+function JobsCard({ job }) {
 
     const navigate = useNavigate();
     // const jobID = "dfghet45tegrdrg";
-const daysAgoFunction  = (mongodbTime) => {
-    const createdAt = new Date(mongodbTime);
-    const currentTime = new Date();
-    const timeDifference = currentTime - createdAt;
-    return Math.floor(timeDifference/(1000*24*60*60))
-}
+    const daysAgoFunction = (mongodbTime) => {
+        const createdAt = new Date(mongodbTime);
+        const currentTime = new Date();
+        const timeDifference = currentTime - createdAt;
+        return Math.floor(timeDifference / (1000 * 24 * 60 * 60))
+    }
 
     return (
         <div className='p-5 rounded-md shadow-md bg-white border border-gray-100 w-full max-w-xs min-w-[250px] mx-auto '>
@@ -49,7 +49,7 @@ const daysAgoFunction  = (mongodbTime) => {
                 <Badge className={'text-[#7209b7] font-bold'} variant="ghost">{job?.salery}_LPA</Badge>
             </div>
             <div className='flex items-center gap-4 mt-3 '>
-                <Button onClick={() =>navigate(`/description/${job?._id}`) } variant="outline" className="font-medium ">Details</Button>
+                <Button onClick={() => navigate(`/description/${job?._id}`)} variant="outline" className="font-medium ">Details</Button>
                 <Button className="bg-[#F83002] font-medium">Save for Later</Button>
             </div>
         </div>

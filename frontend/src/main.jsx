@@ -13,12 +13,12 @@ const persister = persistStore(store);
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persister}>
         <App />
       </PersistGate>
     </Provider>
     <Toaster />
-  </React.StrictMode>,
+  </>
 )
